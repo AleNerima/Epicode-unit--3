@@ -54,7 +54,7 @@ class User implements Smartphone {
     }
 }
 
-// Esempio di utilizzo
+// Prove
 const utenti: User[] = [
     new User("Mario", "Rossi"),
     new User("Luigi", "Verdi")
