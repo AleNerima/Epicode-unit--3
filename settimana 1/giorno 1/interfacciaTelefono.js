@@ -41,6 +41,7 @@ const utenti = [
 ];
 utenti[0].ricarica(10); // Ricarica di 10 euro 
 utenti[0].chiamata(1); // Effettua una chiamata di 1 minuto quindi ritorna 9.8 
+utenti[0].azzeraChiamate(); //dovrei avere 0 minuti ma il credito abbassato a 9.8
 utenti[1].ricarica(15);
 utenti[1].chiamata(10);
 User.verificaStatoUtenti(utenti); // Verifica lo stato di tutti gli utenti
