@@ -8,7 +8,7 @@ import { ActivePostsComponent } from './Components/active-posts/active-posts.com
 import { InactivePostsComponent } from './Components/inactive-posts/inactive-posts.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { PostDetailComponent } from './Components/post-detail/post-detail.component';
-import { ModelsComponent } from './models/models.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { ModelsComponent } from './models/models.component';
     InactivePostsComponent,
     NavbarComponent,
     PostDetailComponent,
-    ModelsComponent
   ],
   imports: [
     BrowserModule,
