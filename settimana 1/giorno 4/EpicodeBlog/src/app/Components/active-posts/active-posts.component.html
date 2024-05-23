@@ -1,1 +1,17 @@
-<p>active-posts works!</p>
+<div class="container">
+
+  <div class="row">
+    <h2 class="h4 my-5">Post attivi:</h2>
+    <div class="col-12" *ngFor="let post of activePosts">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.body}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

@@ -9,14 +9,17 @@ export class PostService {
 
   constructor() { }
 
-  async getPosts(): Promise<iPost[]> {
+  async getPosts(active?:boolean): Promise<iPost[]> {
     try {
       const response = await fetch(this.postsUrl);
       const posts = await response.json();
-      return posts.posts || [];
+
+      if(active !== undefined) {return posts.posts.filter((post: { active: boolean; })=> post.active === active)}
+      else{return posts.posts || [];}
+
     } catch (error) {
-      console.error('Errore durante il recupero dei post:', error);
-      return []; // In caso di errore, restituisce array vuoto
+      console.error('Errore recupero  post:', error);
+      return [];
     }
   }
 }
