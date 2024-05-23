@@ -8,6 +8,7 @@ import { ActivePostsComponent } from './Components/active-posts/active-posts.com
 import { InactivePostsComponent } from './Components/inactive-posts/inactive-posts.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { PostDetailComponent } from './Components/post-detail/post-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { PostDetailComponent } from './Components/post-detail/post-detail.compon
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],

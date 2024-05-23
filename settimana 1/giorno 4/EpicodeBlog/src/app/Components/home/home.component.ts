@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { iPost } from '../../Models/iPosts';
-import { IJason } from '../../Models/i-jason';
+import { PostService } from '../../posts.service';
 
 @Component({
   selector: 'app-home',
@@ -8,36 +8,29 @@ import { IJason } from '../../Models/i-jason';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  firstPost!: iPost;
   postsArr: iPost[] = [];
-  allPosts: iPost[] = []; // Array per mantenere tutti i post caricati
+
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
     this.getPosts();
   }
 
   async getPosts() {
-    const response = await fetch('../../../assets/db.json');
-    const posts = <IJason>await response.json();
-    this.allPosts = posts.posts;
-    this.getRandomPosts(4); // Chiamo la funzione per ottenere 4 post casuali
-  }
-
-  getRandomPosts(num: number) {
-    const randomPosts: iPost[] = [];
-    const usedIndices: Set<number> = new Set(); // Per tenere traccia degli indici già usati
-
-    while (randomPosts.length < num && usedIndices.size < this.allPosts.length) {
-      const randomIndex = this.getRandomInt(this.allPosts.length);
-      if (!usedIndices.has(randomIndex)) {
-        randomPosts.push(this.allPosts[randomIndex]);
-        usedIndices.add(randomIndex);
-      }
+    try {
+      const posts = await this.postService.getPosts();
+      this.firstPost = posts[0]; // Assegna il primo post alla variabile firstPost
+      this.postsArr = this.getRandomPosts(posts, 4); // Ottieni 4 post casuali
+    } catch (error) {
+      console.error('Errore recupero posts:', error);
     }
-
-    this.postsArr = randomPosts;
   }
 
-  getRandomInt(max: number): number {
-    return Math.floor(Math.random() * max);
+  getRandomPosts(posts: iPost[], num: number): iPost[] {
+    const shuffled = posts.slice(); // Clona l'array originale per evitare modifiche
+    shuffled.sort(() => 0.5 - Math.random()); // Ordina casualmente gli elementi clonati
+    return shuffled.slice(0, num);
   }
 }
+
