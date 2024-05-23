@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h2 class="my-5">Post in evidenza</h2>
-    <div class="col-12">
+    <div class="col-12" *ngIf="postsArr.length > 0">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{firstPost.title}}</h5>
