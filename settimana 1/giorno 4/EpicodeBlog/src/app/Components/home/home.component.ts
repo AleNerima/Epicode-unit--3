@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   async getPosts() {
     try {
       const posts = await this.postService.getPosts();
-      this.firstPost = posts[0]; // Assegna il primo post alla variabile firstPost
+      this.firstPost = posts[0]; // Assegno il primo post alla variabile firstPost
       this.postsArr = this.getRandomPosts(posts, 4); // Ottieni 4 post casuali
     } catch (error) {
       console.error('Errore recupero posts:', error);
