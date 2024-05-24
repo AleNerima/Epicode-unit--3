@@ -3,14 +3,14 @@
     <div class="col-12 p-0">
       <h1 class="text-center mb-5 pb-3 mx-0 mt-5 border-bottom border-2 border-primary">I Nostri Brand</h1>
     </div>
-    <div class="col-12 d-flex flex-row p-0">
-      <div class="col-4 text-center">
+    <div class="col-12 d-lg-flex flex-row p-0">
+      <div class="col-lg-4 col-12 text-center">
         <a routerLink="/fiat"><img src="../../../assets/immagini/logofiat.png" alt="logo fiat"></a>
       </div>
-      <div class="col-4 text-center">
+      <div class="col-lg-4 col-12 text-center">
         <a routerLink="/ford"><img src="../../../assets/immagini/logoford.jpg" alt="logo ford"></a>
       </div>
-      <div class="col-4 text-center">
+      <div class="col-lg-4 col-12 text-center">
         <a routerLink="/audi"><img src="../../../assets/immagini/logoaudi.png" alt="logo audi"></a>
       </div>
     </div>
@@ -24,7 +24,7 @@
           <h5 class="card-title">{{ veicolo.brand }} {{ veicolo.model }}</h5>
           <p class="card-text">Anno: {{ veicolo.year }}</p>
           <p class="card-text">Prezzo: {{ veicolo.price }}</p>
-          <p class="card-text" [ngClass]="{ 'text-success': veicolo.available, 'text-danger': !veicolo.available }">
+          <p class="card-text fw-bold" [ngClass]="{ 'text-success': veicolo.available, 'text-danger': !veicolo.available }">
             {{ veicolo.available ? 'Disponibile' : 'Non disponibile' }}
           </p>
           <button class="btn btn-primary" [routerLink]="['/', veicolo.brand.toLowerCase()]" [queryParams]="{ id: veicolo.id }">Vai Al Brand</button>

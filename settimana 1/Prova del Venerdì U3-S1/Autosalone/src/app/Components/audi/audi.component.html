@@ -8,7 +8,7 @@
           <h5 class="card-title">{{ veicolo.brand }} {{ veicolo.model }}</h5>
           <p class="card-text">Anno: {{ veicolo.year }}</p>
           <p class="card-text">Prezzo: {{ veicolo.price }}</p>
-          <p class="card-text" [ngClass]="{ 'text-success': veicolo.available, 'text-danger': !veicolo.available }">
+          <p class="card-text fw-bold" [ngClass]="{ 'text-success': veicolo.available, 'text-danger': !veicolo.available }">
             {{ veicolo.available ? 'Disponibile' : 'Non disponibile' }}
           </p>
           <button class="btn btn-primary" routerLink="/">Torna alla Home</button>

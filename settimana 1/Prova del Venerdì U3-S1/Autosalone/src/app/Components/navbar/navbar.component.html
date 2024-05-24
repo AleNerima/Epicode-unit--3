@@ -1,29 +1,30 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand text-danger fw-bolder"  routerLink="/">
+    <a class="navbar-brand text-danger fw-bolder" routerLink="/">
       <img src="../../../assets/immagini/logorent.png" alt="logo azienda">
       RentCar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': !isCollapsed}">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item d-lg-block">
           <a class="nav-link active fw-4 text-light" aria-current="page" routerLink="/">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-lg-block">
           <a class="nav-link active fw-4 text-light" aria-current="page" routerLink="/fiat">Fiat</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-lg-block">
           <a class="nav-link active fw-4 text-light" aria-current="page" routerLink="/ford">Fords</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-lg-block">
           <a class="nav-link active fw-4 text-light" aria-current="page" routerLink="/audi">Audi</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-lg-block">
           <a class="nav-link active fw-4 text-light" aria-current="page" href="#">Contattaci</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
