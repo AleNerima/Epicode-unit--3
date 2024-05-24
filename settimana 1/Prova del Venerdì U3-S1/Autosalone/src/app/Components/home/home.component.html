@@ -16,6 +16,20 @@
     </div>
   </div>
   <div class="row">
-
+    <h2 class="text-center border-bottom border-primary border-2 pb-3 mb-5 mt-3">Auto in evidenza</h2>
+    <div class="col-12 d-lg-flex flex-row p-0">
+      <div class="card col-lg-6 me-lg-2 mb-2 border border-2 rounded-4" *ngFor="let veicolo of veicoli">
+        <img class="card-img-top h-50" [src]="veicolo.modelImage" alt="Immagine del veicolo">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ veicolo.brand }} {{ veicolo.model }}</h5>
+          <p class="card-text">Anno: {{ veicolo.year }}</p>
+          <p class="card-text">Prezzo: {{ veicolo.price }}</p>
+          <p class="card-text" [ngClass]="{ 'text-success': veicolo.available, 'text-danger': !veicolo.available }">
+            {{ veicolo.available ? 'Disponibile' : 'Non disponibile' }}
+          </p>
+          <button class="btn btn-primary" [routerLink]="['/', veicolo.brand.toLowerCase()]" [queryParams]="{ id: veicolo.id }">Vai Al Brand</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
