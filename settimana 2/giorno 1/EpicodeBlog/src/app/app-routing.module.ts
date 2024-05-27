@@ -1,17 +1,31 @@
-import { NgModule, Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
-import { ActivePostsComponent } from './Components/active-posts/active-posts.component';
-import { InactivePostsComponent } from './Components/inactive-posts/inactive-posts.component';
+import { NgModule } from '@angular/core';
+import { Route, RouterModule, Routes } from '@angular/router';
+import { ActivePostsComponent } from './active-posts/active-posts.component';
+import { InactivePostsComponent } from './inactive-posts/inactive-posts.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
-const routes: Routes = [
-  {path:'',component: HomeComponent},
-  {path:'active-posts',component: ActivePostsComponent},
-  {path:'inactive-posts',component: InactivePostsComponent}
+const routes: Route[] = [
+  {
+    path: 'active',
+    component: ActivePostsComponent,
+  },
+  {
+    path: 'inactive',
+    component: InactivePostsComponent,
+  },
+  {
+    path: "post/:id",
+    component: PostDetailComponent
+  },
+  {
+    path: '',
+    component: HomepageComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
