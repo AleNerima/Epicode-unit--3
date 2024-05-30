@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { PreferitiComponent } from './Components/preferiti/preferiti.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +21,9 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

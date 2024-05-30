@@ -1,1 +1,15 @@
-<p>homepage works!</p>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-md-4 mb-3" *ngFor="let photo of photos">
+      <div class="card h-100">
+        <img [src]="photo.thumbnailUrl" class="card-img-top h-50" alt="Photo">
+        <div class="card-body">
+          <h5 class="card-title">{{ photo.title }}</h5>
+          <p class="card-text">Album ID: {{ photo.albumId }}</p>
+          <!-- Chiamare il metodo aggiungiAiPreferiti al click del pulsante -->
+          <button class="btn btn-primary" (click)="aggiungiAiPreferiti(photo)">Aggiungi ai preferiti</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
