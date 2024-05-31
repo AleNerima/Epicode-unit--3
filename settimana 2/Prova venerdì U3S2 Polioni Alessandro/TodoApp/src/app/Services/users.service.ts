@@ -810,7 +810,6 @@ export class UsersService {
 
   constructor() { }
 
-  // Metodo per recuperare tutti gli utenti
   getUsers(): iUser[] {
     return this.users;
   }

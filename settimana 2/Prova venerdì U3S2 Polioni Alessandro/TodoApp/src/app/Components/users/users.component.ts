@@ -12,6 +12,7 @@ import { iUser } from '../../Models/users';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
+
   combinedTodos: iCombinazione[] = [];
   filteredTodos: iCombinazione[] = [];
   searchTerm: string = '';
@@ -46,7 +47,6 @@ export class UsersComponent implements OnInit {
     }
   }
 
-  // Metodo per aggiornare la lista filtrata quando il termine di ricerca cambia
   onSearchTermChange(searchTerm: string): void {
     this.searchTerm = searchTerm;
     this.filterUsers();
