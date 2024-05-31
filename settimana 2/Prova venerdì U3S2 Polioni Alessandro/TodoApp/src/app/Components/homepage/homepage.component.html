@@ -3,7 +3,7 @@
     <div class="col-12">
       <form class="mb-3">
         <p>Filtra Utenti per nome:</p>
-        <input class="form-control" type="text" placeholder="Cerca per utente..." [(ngModel)]="searchTerm"
+        <input class="form-control" type="text" placeholder="Cerca per nome utente" [(ngModel)]="searchTerm"
           (input)="filterTodos()" name="searchTerm">
       </form>
       <div *ngFor="let combinazione of filteredTodos">
