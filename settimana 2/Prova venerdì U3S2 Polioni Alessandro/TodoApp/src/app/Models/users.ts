@@ -1,10 +1,8 @@
-export type Root = iUsers[]
-
-export interface iUsers {
-  id: number
-  firstName: string
-  lastName: string
-  email: string
-  image: string
-  title: string
+export interface iUser {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  image?: string;
+  title?: string;
 }

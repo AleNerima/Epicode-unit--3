@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomepageComponent } from './Components/homepage/homepage.component';
+import { HomeComponent } from './Components/homepage/homepage.component';
 import { TaskCompletatiComponent } from './Components/task-completati/task-completati.component';
 import { UsersComponent } from './Components/users/users.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
@@ -11,7 +11,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
+    HomeComponent,
     TaskCompletatiComponent,
     UsersComponent,
     NavbarComponent
