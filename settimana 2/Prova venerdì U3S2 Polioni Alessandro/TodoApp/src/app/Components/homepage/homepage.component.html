@@ -1,14 +1,18 @@
 <div class="container mt-5">
   <div class="row">
-    <h1 class="text-center text-danger mb-5">Tutte le cose da fare</h1>
     <div class="col-12">
-      <div *ngFor="let combinazione of combinedTodos">
+      <form class="mb-3">
+        <input class="form-control" type="text" placeholder="Cerca per utente..." [(ngModel)]="searchTerm"
+          (input)="filterTodos()" name="searchTerm">
+      </form>
+      <div *ngFor="let combinazione of filteredTodos">
         <div *ngFor="let todo of combinazione.todos" class="card mb-3" [ngClass]="{ 'completed': todo.completed }">
-          <div class="card-body" >
+          <div class="card-body">
             <h5 class="card-title"><span class="text-primary fw-bold">Obiettivo:</span> {{ todo.todo }}</h5>
             <p class="card-text">Autore: {{ combinazione.user.firstName }}</p>
             <div class="form-check">
-              <input class="form-check-input rounded-circle border border-1 border-primary" type="checkbox" [checked]="todo.completed" (change)="updateTodoStatus(todo)">
+              <input class="form-check-input rounded-circle border border-1 border-primary" type="checkbox"
+                [checked]="todo.completed" (change)="updateTodoStatus(todo)">
               <label class="form-check-label">Task Completato</label>
             </div>
             <i *ngIf="todo.completed" class="fa fa-check text-success" aria-hidden="true"></i>

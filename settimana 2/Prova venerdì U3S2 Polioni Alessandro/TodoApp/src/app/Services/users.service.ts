@@ -814,4 +814,13 @@ export class UsersService {
   getUsers(): iUser[] {
     return this.users;
   }
+
+  searchUsers(searchTerm: string): iUser[] {
+    searchTerm = searchTerm.toLowerCase();
+    return this.users.filter(user =>
+      user.firstName.toLowerCase().includes(searchTerm) ||
+      user.lastName.toLowerCase().includes(searchTerm) ||
+      user.email.toLowerCase().includes(searchTerm)
+    );
+  }
 }

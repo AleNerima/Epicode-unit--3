@@ -1,11 +1,15 @@
 <div class="container mt-5">
   <div class="row">
     <h1 class="text-center text-danger mb-5">Utenti e le loro cose da fare</h1>
+    <div class="col-12 mb-3">
+      <p>Filtra Utenti per nome:</p>
+      <input class="form-control" type="text" placeholder="Cerca per nome utente" [(ngModel)]="searchTerm" (input)="filterUsers()">
+    </div>
     <div class="col-12">
-      <div *ngFor="let combinazione of combinedTodos">
+      <div *ngFor="let combinazione of filteredTodos">
         <div class="card mb-3">
           <div class="text-center">
-          <img [src]="combinazione.user.image" class="card-img-top user-img " alt="User Photo">
+            <img [src]="combinazione.user.image" class="card-img-top user-img " alt="User Photo">
           </div>
           <div class="card-body">
             <h2 class="card-title text-center text-primary my-3">{{ combinazione.user.firstName }}</h2>
