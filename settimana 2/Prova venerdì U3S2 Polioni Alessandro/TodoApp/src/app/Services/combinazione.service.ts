@@ -7,7 +7,22 @@ import { iCombinazione } from '../Models/combinazione';
   providedIn: 'root'
 })
 export class CombinedService {
+  private todoTasks: iTodo[] = [];
+
   constructor() { }
+
+  setTodoTasks(todoTasks: iTodo[]): void {
+    this.todoTasks = todoTasks;
+  }
+
+  getAllTodos(): iTodo[] {
+    return this.todoTasks;
+  }
+
+
+  getCompletedTodos(): iTodo[] {
+    return this.todoTasks.filter(todo => todo.completed);
+  }
 
   combineTodoWithUsers(todoTasks: iTodo[], users: iUser[]): iCombinazione[] {
     return users.map(user => {
@@ -16,3 +31,4 @@ export class CombinedService {
     });
   }
 }
+

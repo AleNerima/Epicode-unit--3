@@ -1,19 +1,19 @@
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand text-danger fw-bold" href="#">LET'S DO IT</a>
+    <a class="navbar-brand text-danger fw-bold" routerLink="/">LET'S DO IT</a>
     <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div [ngClass]="{ 'collapse': !isNavbarCollapsed, 'navbar-collapse': true }">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Task Completati</a>
+          <a class="nav-link active" aria-current="page" routerLink="/task-completati">Task Completati</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Users</a>
+          <a class="nav-link active" aria-current="page" routerLink="/users">Users</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
