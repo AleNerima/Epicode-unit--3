@@ -11,7 +11,7 @@ describe('UsersComponent', () => {
       declarations: [UsersComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(UsersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

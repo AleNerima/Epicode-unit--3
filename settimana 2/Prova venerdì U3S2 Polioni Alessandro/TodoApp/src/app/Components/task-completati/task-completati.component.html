@@ -1,1 +1,22 @@
-<p>task-completati orks!</p>
+<div class="container mt-5">
+  <div class="row">
+    <h1 class="text-center text-danger mb-5">Task Completati</h1>
+    <div class="col-12">
+      <div *ngIf="completedTasks && completedTasks.length > 0">
+        <div *ngFor="let task of completedTasks" class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><span class="text-primary fw-bold">Obiettivo:</span> {{ task.todo }}</h5>
+            <div class="form-check">
+              <input class="form-check-input rounded-circle border border-1 border-primary" type="checkbox" checked disabled>
+              <label class="form-check-label">Task Completato</label>
+            </div>
+            <i class="fa fa-check text-success" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!completedTasks || completedTasks.length === 0">
+        <p class="text-danger">Non ci sono Task completati</p>
+      </div>
+    </div>
+  </div>
+</div>
