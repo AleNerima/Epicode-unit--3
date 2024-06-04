@@ -3,7 +3,7 @@
     <div class="p-4 mb-4 bg-body-secondary rounded-3">
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold">In evidenza: {{ post.title }}</h1>
-        <a routerLink="/post/{{ post.id }}">Leggi di più</a>
+        <a [routerLink]="'/post-detail/' + post.id">Leggi di più</a>
       </div>
     </div>
     <section class="row mb-5">
@@ -20,7 +20,7 @@
           Reactions: {{ related[0].reactions }}
         </div>
         <p class="card-text mb-auto">{{ related[0].body.slice(0, 150) }}...</p>
-        <a routerLink="/post/{{ related[0].id }}"> Continue reading </a>
+        <a [routerLink]="'/post-detail/' + related[0].id">Continue reading</a>
       </div>
       <div
         class="col-12 col-sm-6 p-4 d-flex flex-column"
@@ -35,7 +35,7 @@
           Reactions: {{ related[3].reactions }}
         </div>
         <p class="card-text mb-auto">{{ related[3].body.slice(0, 150) }}...</p>
-        <a routerLink="/post/{{ related[3].id }}"> Continue reading </a>
+        <a [routerLink]="'/post-detail/' + related[3].id">Continue reading</a>
       </div>
     </section>
   </div>
@@ -44,7 +44,7 @@
       <h5>Potrebbero piacerti:</h5>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let post of related">
-          <a routerLink="/post/{{ post.id }}">🔗 {{ post.title }}</a>
+          <a [routerLink]="'/post-detail/' + post.id">🔗 {{ post.title }}</a>
           <br />
           <span
             class="badge bg-primary me-1 text-uppercase"
