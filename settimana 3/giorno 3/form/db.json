@@ -9,6 +9,16 @@
       "pronouns": "He/Him",
       "bio": "asdfasdfa asdfadfasfas dasdf asdf asdf asdf asdf asdf asdfaserasdfa sdasra sdf aser asdf asdrasd sdt",
       "id": 1
+    },
+    {
+      "email": "luigi@bros.com",
+      "password": "$2a$10$qBoz/BetmYdHpuqRQKnHQO7C4imnEG6G7gYuJtHSwR0XnndIur66C",
+      "nome": "gianluigi",
+      "cognome": "rossi",
+      "propic": "",
+      "pronouns": "He/Him",
+      "bio": "ahahahahahahahahahahahahhahahahahahahahahahahhahahahaha",
+      "id": 2
     }
   ]
 }
