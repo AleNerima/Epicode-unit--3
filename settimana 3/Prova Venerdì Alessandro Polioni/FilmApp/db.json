@@ -23,6 +23,12 @@
       "password": "$2a$10$9aVIhm4wgLYPDShHF0YFW.9YCJ/K9Ru6a6.CxwOyiDH16ATPWbvYW",
       "nome": "Angelica ",
       "id": 4
+    },
+    {
+      "email": "alessandro@gmail.com",
+      "password": "$2a$10$wMz4tz2ol6RCC82v9Sua/.8NuAe4o4ba1itLUwREqQRP.3/Xg7PK.",
+      "nome": "alessandro",
+      "id": 5
     }
   ],
   "movies": [
