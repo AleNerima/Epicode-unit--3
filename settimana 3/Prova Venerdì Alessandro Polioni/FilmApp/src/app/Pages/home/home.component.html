@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="container">
+  <h1 class="text-center my-4">Movie List</h1>
+  <div class="row">
+    <div *ngFor="let movie of movies" class="col-md-4">
+      <div class="card mb-4" [id]="'movie-' + movie.id">
+        <img [src]="movie.coverImage" class="card-img-top" alt="{{ movie.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text">Director: {{ movie.director }}</p>
+          <p class="card-text">Year: {{ movie.year }}</p>
+          <p class="card-text">Genre: {{ movie.genre }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
