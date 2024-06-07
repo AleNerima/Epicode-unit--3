@@ -7,6 +7,7 @@ export interface SignUp {
   nome: string;
   cognome: string;
   password: string;
+  passwordConf: string; // Aggiunta della proprietà passwordConf
   pronouns: string;
   email: string;
   bio: string;
