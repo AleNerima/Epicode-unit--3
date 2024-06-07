@@ -1,37 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Auth } from '../interface/auth';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
-  userData: Auth = {
-    email: '',
-    password: ''
-  };
+  ngOnInit(): void {
+  }
 
-  submitLogin(form: NgForm) {
-    if (form.valid) {
-
-      this.authService.login(this.userData).subscribe((response) => {
-
-        if (response.accessToken) {
-
-          this.router.navigateByUrl('');
-          console.log('Login riuscito');
-        } else {
-
-          console.log('Credenziali non valide');
+  submitLogin(): void {
+    if (this.loginForm.valid) {
+      const userData = this.loginForm.value;
+      this.authService.login(userData).subscribe(
+        response => {
+          console.log('Login successful:', response);
+          // Gestire la risposta e la navigazione
+        },
+        error => {
+          console.error('Login failed:', error);
+          // Gestire l'errore
         }
-      });
+      );
     }
   }
 }

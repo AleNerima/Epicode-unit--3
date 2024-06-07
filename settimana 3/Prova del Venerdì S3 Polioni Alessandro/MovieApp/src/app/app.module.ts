@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterModule } from './register/register.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
 import { NavbarModule } from './navbar/navbar.module';
 
@@ -19,6 +19,7 @@ import { NavbarModule } from './navbar/navbar.module';
     AppRoutingModule,
     RegisterModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     LoginModule,
     NavbarModule
