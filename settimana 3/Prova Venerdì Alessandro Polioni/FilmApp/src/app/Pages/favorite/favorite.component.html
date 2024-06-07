@@ -1,1 +1,17 @@
-<p>favorite works!</p>
+<div class="container">
+  <h1 class="text-center my-5">Favorite Movies</h1>
+  <div class="row pt-5">
+    <div *ngFor="let movie of favoriteMovies" class="col-md-4">
+      <div class="card mb-4 h-75" [id]="'movie-' + movie.id">
+        <img [src]="movie.coverImage" class="card-img-top im-fluid h-50" alt="{{ movie.title }}">
+        <div class="card-body bg-warning">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text">Director: {{ movie.director }}</p>
+          <p class="card-text">Year: {{ movie.year }}</p>
+          <p class="card-text">Genre: {{ movie.genre }}</p>
+          <button class="btn btn-outline-danger" (click)="removeFromFavorites(movie)">Remove from Favorites</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

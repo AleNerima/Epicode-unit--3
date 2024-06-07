@@ -15,7 +15,7 @@ export class RegisterComponent {
 
   register(){
     this.authSvc.register(this.newUser).subscribe(()=>{
-      //avviso o redireziono l'utente
+
     })
   }
 

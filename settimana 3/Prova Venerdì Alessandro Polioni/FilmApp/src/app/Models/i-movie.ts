@@ -6,6 +6,7 @@ export interface iMovie {
     year: number;
     genre: string;
     coverImage: string;
+    isFavorite?: boolean;
 
 
 }

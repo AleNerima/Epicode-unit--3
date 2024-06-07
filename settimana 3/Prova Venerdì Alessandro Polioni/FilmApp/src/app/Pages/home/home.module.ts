@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MovieService } from '../../Services/movie.service'; // Assicurati di importare correttamente il servizio
+import { MovieService } from '../../Services/movie.service';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
@@ -14,7 +14,7 @@ import { HomeRoutingModule } from './home-routing.module';
     HomeRoutingModule
   ],
   providers: [
-    MovieService // Aggiungi il servizio MovieService ai providers
+    MovieService
   ]
 })
 export class HomeModule { }
