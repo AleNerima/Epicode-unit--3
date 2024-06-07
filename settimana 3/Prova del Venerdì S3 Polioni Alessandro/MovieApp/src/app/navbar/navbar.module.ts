@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NavbarRoutingModule } from './navbar-routing.module';
 import { NavbarComponent } from './navbar.component';
-
+import { LoginRoutingModule } from '../login/login-routing.module';
+import { RegisterRoutingModule } from '../register/register-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    NavbarComponent
-  ],
+  declarations: [NavbarComponent],
   imports: [
     CommonModule,
-    NavbarRoutingModule
-  ]
+    LoginRoutingModule,
+    RegisterRoutingModule,
+    ReactiveFormsModule
+  ],
+  exports: [NavbarComponent]
 })
 export class NavbarModule { }

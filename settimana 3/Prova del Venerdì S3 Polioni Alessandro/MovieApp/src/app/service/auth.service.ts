@@ -26,7 +26,7 @@ export class AuthService {
     this.http.get<SignUp[]>(`${this.apiUrl}users`).subscribe(usr => this.users$.next(usr));
   }
 
-  // Metodo per il login
+
   login(cred: Auth): Observable<LoginData> {
     return this.http.post<LoginData>(`${this.apiUrl}login`, cred).pipe(
       tap((res: LoginData) => {
@@ -56,14 +56,14 @@ export class AuthService {
     );
   }
 
-  // Metodo per il logout
+
   logout(): void {
     localStorage.removeItem('user');
     this.isLogged$.next(false);
     this.router.navigateByUrl('auth/signin');
   }
 
-  // Metodo per ottenere l'utente attualmente loggato
+
   currentLoggedUser(): Observable<SignUp[]> | undefined {
     const data = JSON.parse(localStorage.getItem('user') || '{}') as LoginData;
     if (data && data.user && data.user.email) {
@@ -77,7 +77,7 @@ export class AuthService {
     }
   }
 
-  // Metodo per verificare lo stato di login
+
   verifyLogin(): void {
     const data = JSON.parse(localStorage.getItem('user') || '{}') as LoginData;
     if (data && data.accessToken) {
@@ -88,7 +88,7 @@ export class AuthService {
     }
   }
 
-  // Gestione degli errori
+
   private handleError(error: any): Observable<never> {
     let errorMessage = 'Errore imprevisto';
     if (error.error instanceof ErrorEvent) {

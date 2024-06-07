@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="container h-100 d-flex justify-content-center align-items-center">
+  <form #loginForm="ngForm" class="w-50 p-5 rounded-3" (submit)="submitLogin(loginForm)">
+    <div class="d-flex flex-column align-items-start justify-content-center">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input required [(ngModel)]="userData.email" type="email" class="form-control"
+          id="email" name="email" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input required [(ngModel)]="userData.password" type="password" class="form-control"
+          id="password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+    </div>
+  </form>
+</div>

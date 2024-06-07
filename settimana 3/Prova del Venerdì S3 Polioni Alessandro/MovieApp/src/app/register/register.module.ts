@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
+import { RegisterRoutingModule } from './register-routing.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { RegisterComponent } from './register.component';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule // Non dimenticare di importare ReactiveFormsModule
+    ReactiveFormsModule,
+    RegisterRoutingModule
   ],
   exports:[RegisterComponent]
 })
