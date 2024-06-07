@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "email": "luigi@bros.com",
+      "password": "$2a$10$XCvNdgR7GQzbZh7/q8XJx.VuB7VgplDrU.IK1lHRO6OtFdukDg6gW",
+      "nome": "gianluigi",
+      "id": 1
+    },
+    {
+      "email": "mariorossi@gmail.com",
+      "password": "$2a$10$5Bm01PmKDNocFrhIJQYyaeTgMDzecYlwEfUcEdiM055HQ2sGzN8py",
+      "nome": "Mario",
+      "id": 2
+    },
+    {
+      "email": "lucia@gmail.com",
+      "password": "$2a$10$9yLpEgsOXjMR.pC/l0i/cuRpKh6QgnDFDmAeVM5UIdmMQWlb76EZi",
+      "nome": "Lucia",
+      "id": 3
+    }
+  ],
+  "movies": [],
+  "favorite": []
+}
