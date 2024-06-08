@@ -3,7 +3,7 @@ import { FavoriteService } from '../../Services/favorite.service';
 import { MovieService } from '../../Services/movie.service';
 import { iMovie } from '../../Models/i-movie';
 import { iUser } from '../../Models/i-user';
-import { AuthService } from '../../auth/auth.service'; // Importa il servizio di autenticazione
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-favorite',

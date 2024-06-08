@@ -1,5 +1,3 @@
-
-
 import { iUser } from './i-user';
 import { iMovie } from './i-movie';
 
