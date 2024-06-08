@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
+import { iUser } from '../../Models/i-user';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
 
-  isLoggedIn:boolean = false
+  isLoggedIn: boolean = false;
 
-  constructor(private authSvc:AuthService){}
+  constructor(private authSvc: AuthService) {}
 
-  ngOnInit(){
-
-    this.authSvc.isLoggedIn$
-    .subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn )
-
+  ngOnInit() {
+    this.authSvc.user$.subscribe((user: iUser | null) => {
+      this.isLoggedIn = !!user;
+    });
   }
 
-  logout(){
-    this.authSvc.logout()
+  logout() {
+    this.authSvc.logout();
   }
 
 }

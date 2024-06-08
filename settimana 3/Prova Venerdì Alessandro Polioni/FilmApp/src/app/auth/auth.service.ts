@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { iUser } from '../Models/i-user';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -12,95 +12,87 @@ import { iAuthResponse } from '../Models/i-auth-response';
 })
 export class AuthService {
 
-  jwtHelper:JwtHelperService = new JwtHelperService()
+  jwtHelper: JwtHelperService = new JwtHelperService();
 
-  authSubject = new BehaviorSubject<null|iUser>(null);
+  authSubject = new BehaviorSubject<null | iUser>(null);
 
-  syncIsLoggedIn:boolean = false;
+  syncIsLoggedIn: boolean = false;
 
-  user$ = this.authSubject.asObservable()
+  user$ = this.authSubject.asObservable();
 
   isLoggedIn$ = this.user$.pipe(
-    map(user => !!user),
-    tap(user => this.syncIsLoggedIn = user)
-  )
+    tap(user => this.syncIsLoggedIn = !!user)
+  );
 
   constructor(
-    private http:HttpClient,
-    private router:Router
+    private http: HttpClient,
+    private router: Router
   ) {
-
-    this.restoreUser()
-
+    this.restoreUser();
   }
 
-  loginUrl:string = 'http://localhost:3000/login'
-  registerUrl:string = 'http://localhost:3000/register'
+  loginUrl: string = 'http://localhost:3000/login';
+  registerUrl: string = 'http://localhost:3000/register';
 
-
-  register(newUser:Partial<iUser>):Observable<iAuthResponse>{
-    return this.http.post<iAuthResponse>(this.registerUrl,newUser)
+  register(newUser: Partial<iUser>): Observable<iAuthResponse> {
+    return this.http.post<iAuthResponse>(this.registerUrl, newUser);
   }
 
-
-  login(authData:iAuthData):Observable<iAuthResponse>{
+  login(authData: iAuthData): Observable<iAuthResponse> {
     return this.http.post<iAuthResponse>(this.loginUrl, authData)
-    .pipe(tap(data=>{
-
-      this.authSubject.next(data.user)
-      localStorage.setItem('accessData',JSON.stringify(data))
-
-
-      this.autoLogout();
-
-
-    }))
+      .pipe(tap(data => {
+        this.authSubject.next(data.user);
+        localStorage.setItem('accessData', JSON.stringify(data));
+        this.autoLogout();
+      }));
   }
 
-  logout():void{
-
-    this.authSubject.next(null)
-    localStorage.removeItem('accessData')
-
-    this.router.navigate(['/login'])
-
+  logout(): void {
+    this.authSubject.next(null);
+    localStorage.removeItem('accessData');
+    this.router.navigate(['/login']);
   }
 
-  autoLogout():void{
+  autoLogout(): void {
+    const accessData = this.getAccessData();
 
-    const accessData = this.getAccessData()
+    if (!accessData) return;
 
-    if(!accessData) return
+    const expDate = this.jwtHelper.getTokenExpirationDate(accessData.accessToken) as Date;
+    const expMs = expDate.getTime() - new Date().getTime();
 
-    const expDate = this.jwtHelper.getTokenExpirationDate(accessData.accessToken) as Date
-
-    const expMs = expDate.getTime() - new Date().getTime()
-
-    setTimeout(this.logout,expMs)
-
+    setTimeout(this.logout, expMs);
   }
 
-  getAccessData():iAuthResponse|null{
-
-    const accessDataJson = localStorage.getItem('accessData')
-    if(!accessDataJson) return null
-
-    const accessData:iAuthResponse = JSON.parse(accessDataJson)
-
+  getAccessData(): iAuthResponse | null {
+    const accessDataJson = localStorage.getItem('accessData');
+    if (!accessDataJson) return null;
+    const accessData: iAuthResponse = JSON.parse(accessDataJson);
     return accessData;
   }
 
-  restoreUser():void{
+  restoreUser(): void {
+    const accessData = this.getAccessData();
 
-    const accessData = this.getAccessData()
+    if (!accessData) return;
 
-    if(!accessData) return
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return;
 
-    if(this.jwtHelper.isTokenExpired(accessData.accessToken)) return
-
-    this.authSubject.next(accessData.user)
-    this.autoLogout()
-
+    this.authSubject.next(accessData.user);
+    this.autoLogout();
   }
 
+  getCurrentUser(): iUser | undefined {
+    const accessData = this.getAccessData();
+
+    if (!accessData) {
+      return undefined;
+    }
+
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) {
+      return undefined;
+    }
+
+    return accessData.user;
+  }
 }

@@ -29,6 +29,12 @@
       "password": "$2a$10$wMz4tz2ol6RCC82v9Sua/.8NuAe4o4ba1itLUwREqQRP.3/Xg7PK.",
       "nome": "alessandro",
       "id": 5
+    },
+    {
+      "email": "Riccardo@gmail.com",
+      "password": "$2a$10$z1IOoIoSGbOi8i6c3sWDpexNcU30GS8A1oBi0eBBn7wk9HQe.feiW",
+      "nome": "Riccardo",
+      "id": 6
     }
   ],
   "movies": [

@@ -16,7 +16,11 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/favorite/favorite.module').then(m => m.FavoriteModule),
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard]
-  }
+  },
+  { path: 'userList', loadChildren: () => import('./Pages/users-list/users-list.module').then(m => m.UsersListModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard]
+   }
 ];
 
 @NgModule({
